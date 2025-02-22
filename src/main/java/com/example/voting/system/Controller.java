@@ -18,13 +18,12 @@ public class Controller {
     public int getCurrentVoteByCandId(@PathVariable String id) {
 
         id = id.trim();
-        var count = switch (id) {
+
+        return switch (id) {
             case "A" -> candidateA.get();
             case "B" -> candidateB.get();
             default -> throw new IllegalStateException("Unexpected value: " + id);
         };
-
-        return count;
     }
 
     @PutMapping
